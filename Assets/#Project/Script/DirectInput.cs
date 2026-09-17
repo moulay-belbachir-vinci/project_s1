@@ -10,6 +10,7 @@ public class DirectInput : MonoBehaviour
     }
 
     // Update is called once per frame
+    int var = 0;
     void Update()
     {
         Keyboard keyboard = Keyboard.current;
@@ -29,6 +30,27 @@ public class DirectInput : MonoBehaviour
         if (keyboard.leftArrowKey.isPressed)
         {
             transform.position -= Vector3.right * 5 * Time.deltaTime;
+        }
+
+        if (keyboard.upArrowKey.isPressed)
+        {
+            transform.position += Vector3.forward * 5 * Time.deltaTime;
+        }
+
+        if (keyboard.downArrowKey.isPressed)
+        {
+            transform.position += Vector3.back * 5 * Time.deltaTime;
+        }
+        
+        if (keyboard.spaceKey.isPressed && var<25)
+        {
+            
+            transform.position += Vector3.up * var * Time.deltaTime;
+            var++;
+        }
+        else
+        {
+            var=0;
         }
 
     }
